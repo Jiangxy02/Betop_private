@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> 🌟 Stay up to date at [opendrivelab.com](https://opendrivelab.com/#news)!
+
 <h1 align="center"> BeTop: Reasoning Multi-Agent Behavioral Topology 
 for Interactive Autonomous Driving </h1> 
 
