@@ -15,6 +15,8 @@ import multiprocessing
 import glob
 from tqdm import tqdm
 from waymo_open_dataset.protos import scenario_pb2
+import sys
+sys.path.append('/media/jxy/G/a_baseline/BeTop/womd')
 from betopnet.datasets.waymo.waymo_types import (object_type, lane_type, 
         road_line_type, road_edge_type, signal_state, polyline_type)
 
@@ -135,8 +137,9 @@ def decode_map_features_from_proto(map_features):
             map_infos['speed_bump'].append(cur_info)
 
         else:
-            print(cur_data)
-            raise ValueError
+            # Skip unsupported map feature types
+            # print(f"Warning: Skipping unsupported map feature type for feature id {cur_data.id}")
+            continue
 
         polylines.append(cur_polyline)
         cur_info['polyline_index'] = (point_cnt, point_cnt + len(cur_polyline))
@@ -177,7 +180,9 @@ def process_waymo_data_with_scenario_proto(data_file, output_path=None):
     for cnt, data in enumerate(dataset):
         info = {}
         scenario = scenario_pb2.Scenario()
-        scenario.ParseFromString(bytearray(data.numpy()))
+        # scenario.ParseFromString(bytearray(data.numpy()))
+        scenario.ParseFromString(data.numpy())
+
 
         info['scenario_id'] = scenario.scenario_id
         info['timestamps_seconds'] = list(scenario.timestamps_seconds)  # list of int of shape (91)
@@ -277,7 +282,11 @@ def create_test_infos_from_protos(raw_data_path, output_path, num_workers=16):
 
 
 if __name__ == '__main__':
-    create_test_infos_from_protos(
+    # create_test_infos_from_protos(
+    #     raw_data_path=sys.argv[1],
+    #     output_path=sys.argv[2]
+    # )
+    create_infos_from_protos(
         raw_data_path=sys.argv[1],
         output_path=sys.argv[2]
     )

@@ -52,7 +52,7 @@
 ### 1. 系统要求
 
 - **操作系统**: Linux (推荐 Ubuntu 18.04+)
-- **Python**: 3.7+
+- **Python**: 3.9 【womd/betopnet/ops/attention/attention_cuda.cpython-39-x86_64-linux-gnu.so 要求用3.9】
 - **CUDA**: 11.3+
 - **GPU**: 至少一块支持CUDA的GPU (推荐 A100 80GB)
 
@@ -132,8 +132,8 @@ cd womd/tools/data_tools
 
 # 运行预处理脚本
 python3 data_preprocess.py \
-    /path/to/downloaded/waymo/data \
-    /path/to/save/processed/info
+    /media/jxy/HIKSEMI/dataset/Waymo1.2.0/betop \
+    /media/jxy/G/a_baseline/BeTop/data
 ```
 
 **预处理功能：**
@@ -161,8 +161,8 @@ processed_info_path/
 cd womd/tools/data_tools
 
 python3 cache_offline_data.py \
-    --cache_path /path/to/cache/directory \
-    --cfg ../cfg/BeTopNet_full_64.yaml
+    --cache_path /media/jxy/G/a_baseline/BeTop/cache \
+    --cfg /media/jxy/G/a_baseline/BeTop/womd/tools/cfg/BeTopNet_full_64.yaml
 ```
 
 **注意事项：**

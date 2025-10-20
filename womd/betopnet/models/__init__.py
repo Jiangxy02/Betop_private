@@ -18,3 +18,11 @@ def build_model(config):
         config=config
     )
     return model
+
+
+# Create a module-like object to support "from betopnet.models import model as model_utils"
+class ModelModule:
+    build_model = staticmethod(build_model)
+
+import sys
+sys.modules['betopnet.models.model'] = ModelModule()

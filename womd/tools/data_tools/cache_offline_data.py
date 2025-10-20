@@ -5,7 +5,7 @@ Behavioral Topology (BeTop): https://arxiv.org/abs/2409.18031
 Mostly from Motion Transformer (MTR): https://arxiv.org/abs/2209.13508
 '''
 
-import _init_path
+# import _init_path
 import argparse
 import datetime
 import glob
@@ -18,12 +18,15 @@ import torch.nn as nn
 import torch.optim.lr_scheduler as lr_sched
 from tensorboardX import SummaryWriter
 
+import sys
+sys.path.append('/media/jxy/G/a_baseline/BeTop/womd')
+
 from betopnet.datasets import build_dataloader
 from betopnet.config import cfg, cfg_from_list, cfg_from_yaml_file, log_config_to_file
 from betopnet.utils import common_utils
 from betopnet.models import model as model_utils
 
-from train_utils.train_utils import train_model
+from tools.train_utils.train_utils import train_model
 import numpy as np
 from tqdm import tqdm
 

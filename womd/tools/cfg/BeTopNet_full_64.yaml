@@ -2,7 +2,7 @@ DATA_CONFIG:
     DATASET: BeTopWaymoDataset
     OBJECT_TYPE: &object_type ['TYPE_VEHICLE', 'TYPE_PEDESTRIAN', 'TYPE_CYCLIST']
     
-    DATA_ROOT: 'YOUR_DATA_ROOT'
+    DATA_ROOT: '/media/jxy/G/a_baseline/BeTop/data'
     TRAIN_NPZ_DIR: 'YOUR_CACHED_DATA_ROOT'
     
     SPLIT_DIR: {
@@ -74,7 +74,7 @@ MODEL:
         NUM_FUTURE_FRAMES: 80
         NUM_MOTION_MODES: 6
 
-        INTENTION_POINTS_FILE: path_to_your_points/cluster_64_center_dict.pkl
+        INTENTION_POINTS_FILE: /media/jxy/G/a_baseline/BeTop/womd/files/cluster_64_center_dict.pkl
 
         D_MODEL: 512
         NUM_DECODER_LAYERS: 6 

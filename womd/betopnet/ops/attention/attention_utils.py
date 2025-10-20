@@ -6,6 +6,9 @@ import torch
 import torch.nn as nn
 from torch.autograd import Function, Variable
 
+import sys
+sys.path.append('womd/betopnet/ops/attention')
+
 from . import attention_cuda
 
 
